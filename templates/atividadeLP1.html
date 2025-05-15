@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercícios de Python</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 20px; }
+    .card {
+      background: white; padding: 20px; margin-bottom: 20px;
+      border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 { margin-top: 0; }
+    input[type="text"], textarea {
+      width: 100%; padding: 10px; margin-top: 10px; margin-bottom: 10px;
+    }
+    button {
+      padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover { background: #0056b3; }
+    .feedback { margin-top: 10px; font-weight: bold; }
+    pre { background: #eee; padding: 10px; }
+  </style>
+</head>
+<body>
+
+  <h1>Exercícios de Python</h1>
+  <p>Execute os códigos no seu terminal e informe abaixo a saída gerada.</p>
+
+  <div class="card">
+    <h2>Exercício de Python 1: tipos de dados</h2>
+    <p>Dada a lista:</p>
+    <pre>itens = [123, "texto", 3.14, True, None]</pre>
+    <p>Escreva um programa que imprime o <strong>tipo de cada item</strong> da lista usando <code>type()</code>. Exemplo de saída esperada:</p>
+    <pre>&lt;class 'int'&gt;
+&lt;class 'str'&gt;
+...</pre>
+    <label>Saída:</label>
+    <textarea id="q1" rows="5" placeholder="Cole aqui a saída do seu programa"></textarea>
+    <button onclick="verificar('q1', `&lt;class 'int'&gt;\n&lt;class 'str'&gt;\n&lt;class 'float'&gt;\n&lt;class 'bool'&gt;\n&lt;class 'NoneType'&gt;`)">Verificar</button>
+    <div class="feedback" id="f1"></div>
+  </div>
+
+  <div class="card">
+    <h2>Exercício de Python 2: soma de dois números</h2>
+    <p>Escreva um programa que leia dois números (2 e 3) e imprima a soma.</p>
+    <label>Saída:</label>
+    <input type="text" id="q2">
+    <button onclick="verificar('q2', '5')">Verificar</button>
+    <div class="feedback" id="f2"></div>
+  </div>
+
+  <div class="card">
+    <h2>Exercício de Python 3: maior e menor palavra</h2>
+    <p>Partindo de uma lista de palavras:</p>
+    <pre>palavras = ["python", "asimov", "código", "web", "programação"]</pre>
+    <p>Escreva um programa que imprima a <strong>maior</strong> e a <strong>menor</strong> palavra da lista (baseado no número de caracteres).</p>
+    <p>Formato da saída esperada (exatamente):</p>
+    <pre>Maior: programação
+Menor: web</pre>
+    <label>Saída:</label>
+    <textarea id="q3" rows="3" placeholder="Cole aqui a saída do seu programa"></textarea>
+    <button onclick="verificar('q3', `Maior: xx\nMenor: yy`)">Verificar</button>
+    <div class="feedback" id="f3"></div>
+  </div>
+
+  <script>
+    function verificar(idCampo, respostaEsperada) {
+      const entrada = document.getElementById(idCampo).value.trim();
+      const esperado = respostaEsperada.trim();
+      const feedbackId = 'f' + idCampo.replace('q', '');
+      const feedback = document.getElementById(feedbackId);
+      if (entrada === esperado) {
+        feedback.innerHTML = '✅ Correto!';
+        feedback.style.color = 'green';
+      } else {
+        feedback.innerHTML = `❌ Incorreto. Esperado:<br><pre>${esperado}</pre>`;
+        feedback.style.color = 'red';
+      }
+    }
+  </script>
+
+</body>
+</html>
+
